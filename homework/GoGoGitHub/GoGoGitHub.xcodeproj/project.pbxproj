@@ -61,6 +61,7 @@
 				148551C21D21C45200A7008D /* Assets */,
 				148551BD1D21C33600A7008D /* App Global */,
 				148551BC1D21C32A00A7008D /* Controller */,
+				148551C31D21C5CC00A7008D /* Utilities */,
 				148551BB1D21C2EC00A7008D /* View */,
 			);
 			path = GoGoGitHub;
@@ -80,7 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				148551AB1D21C29D00A7008D /* ViewController.swift */,
-				148551BE1D21C35D00A7008D /* GitHubOAuth.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -100,6 +100,14 @@
 				148551C01D21C44700A7008D /* Credentials.swift */,
 			);
 			name = Assets;
+			sourceTree = "<group>";
+		};
+		148551C31D21C5CC00A7008D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				148551BE1D21C35D00A7008D /* GitHubOAuth.swift */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
