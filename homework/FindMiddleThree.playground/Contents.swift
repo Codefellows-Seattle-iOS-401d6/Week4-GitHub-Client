@@ -18,8 +18,8 @@ func findMiddleThree<T> (input: [T]) -> [T]? {
 
 //With Assumptions in Original Question
 func findMiddleThreeVTwo<T> (input: [T]) -> [T] {
-    let outputArray = Array(input[(input.count / 2).predecessor()...(input.count / 2).successor()])
-    return outputArray
+      return Array(input[(input.count / 2).predecessor()...(input.count / 2).successor()])
+  
 }
 
 
