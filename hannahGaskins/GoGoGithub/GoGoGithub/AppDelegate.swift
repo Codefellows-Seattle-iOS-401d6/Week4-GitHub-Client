@@ -18,21 +18,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         return true
     }
-
-    func application(app: UIApplication, openURL url: NSURL, options: [String : Anyobject]) -> Bool {
+    
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
         print("AppDelegate - OpenURL Func URL: \(url)")
         
-        GitHubOAuth.shared.tokenRequestWithCallBack(url, options: SaveOptions.userDefaults { (success) in
+        GitHubOAuth.shared.tokenRequestWithCallback(url, options: SaveOptions.userDefaults) { (success) in
             
             if success {
                 print("we have a token!!")
             }
             
-            
         }
-            return true
-        }
+        return true
     }
-    
 }
 

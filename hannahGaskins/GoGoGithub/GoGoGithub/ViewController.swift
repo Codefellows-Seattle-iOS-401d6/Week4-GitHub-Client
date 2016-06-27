@@ -28,8 +28,10 @@ class ViewController: UIViewController {
     
     @IBAction func printToken(sender: AnyObject) {
         do {
-            let token = try GitHubOAuth.shared.accessTokenFromString()
+            let token = try GitHubOAuth.shared.accessToken()
             print(token)
+        } catch let error {
+            print(error)
         }
     }
 }

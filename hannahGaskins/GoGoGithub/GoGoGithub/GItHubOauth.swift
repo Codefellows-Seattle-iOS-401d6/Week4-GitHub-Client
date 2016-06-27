@@ -121,7 +121,7 @@ class GitHubOAuth {
         return NSUserDefaults.standardUserDefaults().synchronize()
     }
     // takes in url to get a temporary code. we made helper functions to break steps up
-    func tokenRequestWithCallBack(url: NSURL, options: SaveOptions, completion: GitHubOAuthCompletion) {
+    func tokenRequestWithCallback(url: NSURL, options: SaveOptions, completion: GitHubOAuthCompletion) {
         do {
             
             let temporaryCode = try self.temporaryCodeFromCallback(url)
