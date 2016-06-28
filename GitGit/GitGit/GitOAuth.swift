@@ -62,18 +62,6 @@ class GitHubOAuth {
         return temporaryCode
     }
     
-    func stringWith(data: NSData)-> String? {
-        
-        let myResult = String(data: data, encoding: NSUTF8StringEncoding)
-        
-//        let byteBuffer: UnsafeBufferPointer = UnsafeBufferPointer<UInt8>(start: UnsafeMutablePointer<UInt8>(data.bytes), count: data.length)
-//        
-//        let result = String(bytes: byteBuffer, encoding: NSASCIIStringEncoding)
-//        
-//        print("\(result) => \(myResult)")
-        return myResult
-    }
-    
     func accessTokenFromString(string: String) throws -> String? {
         
         do {
@@ -151,8 +139,8 @@ class GitHubOAuth {
                     }
                     
                     if let data = data {
-                        
-                        if let tokenString = self.stringWith(data) {
+                                                
+                        if let tokenString = String(data: data, encoding: NSUTF8StringEncoding) {
                             
                             do {
                                     if let token = try self.accessTokenFromString(tokenString){

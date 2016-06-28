@@ -76,15 +76,10 @@
 				6976A9311D22E90E00A42FD5 /* Controller */,
 				6976A9301D22E90A00A42FD5 /* View */,
 				6976A92F1D22E90500A42FD5 /* Model */,
-				696F34051D21996B002D94CD /* AppDelegate.swift */,
-				696F34071D21996B002D94CD /* ViewController.swift */,
 				696F34091D21996B002D94CD /* Main.storyboard */,
-				6976A9351D22F71700A42FD5 /* setup.swift */,
 				696F340C1D21996B002D94CD /* Assets.xcassets */,
 				696F340E1D21996B002D94CD /* LaunchScreen.storyboard */,
 				696F34111D21996B002D94CD /* Info.plist */,
-				696F34171D219A61002D94CD /* GitOAuth.swift */,
-				696F34191D219D51002D94CD /* Credentials.swift */,
 			);
 			path = GitGit;
 			sourceTree = "<group>";
@@ -92,6 +87,7 @@
 		6976A92F1D22E90500A42FD5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				696F34191D219D51002D94CD /* Credentials.swift */,
 				6976A93D1D23079200A42FD5 /* Repository.swift */,
 				6976A93F1D23079B00A42FD5 /* Owner.swift */,
 			);
@@ -108,6 +104,7 @@
 		6976A9311D22E90E00A42FD5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				696F34071D21996B002D94CD /* ViewController.swift */,
 				6976A9391D22FA9200A42FD5 /* HomeViewController.swift */,
 			);
 			name = Controller;
@@ -116,6 +113,7 @@
 		6976A9321D22E91400A42FD5 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				6976A9351D22F71700A42FD5 /* setup.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -123,6 +121,7 @@
 		6976A9331D22E93F00A42FD5 /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
+				696F34051D21996B002D94CD /* AppDelegate.swift */,
 			);
 			name = Delegate;
 			sourceTree = "<group>";
@@ -130,6 +129,7 @@
 		6976A9341D22E9AC00A42FD5 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				696F34171D219A61002D94CD /* GitOAuth.swift */,
 				6976A93B1D23036600A42FD5 /* API.swift */,
 				6976A9411D23186100A42FD5 /* additions.swift */,
 			);
