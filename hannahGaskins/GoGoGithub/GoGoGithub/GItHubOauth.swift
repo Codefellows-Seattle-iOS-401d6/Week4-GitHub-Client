@@ -26,6 +26,7 @@ enum GitHubOAuthError: ErrorType {
 
 enum SaveOptions: Int {
     case userDefaults // userDefaults in clear text but we need encrption on access tokens
+    case Keychain
 }
 
 // implementing class
@@ -74,16 +75,6 @@ class GitHubOAuth {
         
     }
     
-    // creating a byte buffer and serializing our temporaryCode ourselves
-    func stringWith(data: NSData) -> String? {
-        // unsafeBufferPointer takes in Generics, writing a butter into space
-        let byteBuffer : UnsafeBufferPointer<UInt8> = UnsafeBufferPointer<UInt8>(start: UnsafeMutablePointer<UInt8>(data.bytes), count: data.length)
-        // takes data and converts it into a string. The temporary code that comes across is not JSON or english readable. but the data is just a bunch of bytes. we are using the size of the data to serialize the data ourselves.
-
-        let result = String(bytes: byteBuffer, encoding: NSASCIIStringEncoding)
-        
-        return result
-    }
     
     // creating function to handle the access token from the data passback from github using regex
     func accessTokenFromString(string: String) throws -> String? {
@@ -113,6 +104,44 @@ class GitHubOAuth {
         return nil
     }
     
+    // MARK: Saving
+    
+    private func saveToKeychain(token: String) -> Bool {
+        // stroying data as CoreFoundation
+        var query = self.keychainQuery(kAccessTokenKey)
+        // will return raw binary data
+        query[(kSecValueData as String)] = NSKeyedArchiver.archivedDataWithRootObject(token)
+        // by default it will delete everything in the space that app can interact with
+        SecItemDelete(query)
+        
+        // then adding to teh keychain
+        return SecItemAdd(query, nil) == errSecSuccess
+        
+    }
+    
+    private func keychainQuery(query: String) -> [String : AnyObject] {
+        
+        return [
+            // specifying the type of data we are storing for data. kSecClassGenericPassword encripts
+            (kSecClass as String) : kSecClassGenericPassword,
+            (kSecAttrService as String) : query,
+            (kSecAttrAccount as String) : query,
+            (kSecAttrAccessible as String) : kSecAttrAccessibleAfterFirstUnlock // generic password can be accessed after first unlock
+        ]
+    }
+    
+    // creating a byte buffer and serializing our temporaryCode ourselves
+    func stringWith(data: NSData) -> String? {
+        // unsafeBufferPointer takes in Generics, writing a butter into space
+        let byteBuffer : UnsafeBufferPointer<UInt8> = UnsafeBufferPointer<UInt8>(start: UnsafeMutablePointer<UInt8>(data.bytes), count: data.length)
+        // takes data and converts it into a string. The temporary code that comes across is not JSON or english readable. but the data is just a bunch of bytes. we are using the size of the data to serialize the data ourselves.
+        
+        let result = String(bytes: byteBuffer, encoding: NSASCIIStringEncoding)
+        
+        return result
+    }
+
+    
     func saveAccessTokenToUserDefaults(accessToken: String) -> Bool {
         
         NSUserDefaults.standardUserDefaults().setObject(accessToken, forKey: kAccessTokenKey)
@@ -122,8 +151,15 @@ class GitHubOAuth {
     }
     // takes in url to get a temporary code. we made helper functions to break steps up
     func tokenRequestWithCallback(url: NSURL, options: SaveOptions, completion: GitHubOAuthCompletion) {
+        
+        
+        //
+        func returnOnMain(success: Bool, _ completion: GitHubOAuthCompletion) {
+            NSOperationQueue.mainQueue().addOperationWithBlock {
+                completion(success: success)
+            }
+        }
         do {
-            
             let temporaryCode = try self.temporaryCodeFromCallback(url)
             
             let requestString = "\(kOAuthBaseURLString)access_token?client_id=\(kGitHubClientID)&client_secret=\(kGitHubClientSecret)&code=\(temporaryCode)"
@@ -137,13 +173,13 @@ class GitHubOAuth {
                 //now we have our session, to manage the data tasks
                 session.dataTaskWithURL(requestURL, completionHandler: { (data, response, error) in
                     
-                    if let _ = error {
-                        NSOperationQueue.mainQueue().addOperationWithBlock({
-                            completion(success: false); return
-                        })
-                        completion(success: false); return
-                    
-                    }
+//                    if let _ = error {
+//                        NSOperationQueue.mainQueue().addOperationWithBlock({
+//                            completion(success: false); return
+//                        })
+//                        completion(success: false); return
+//                    
+//                    }
                     
                     if let data = data {
                         
@@ -151,6 +187,11 @@ class GitHubOAuth {
                             
                             do {
                                 if let token = try self.accessTokenFromString(tokenString) {
+                                    
+                                    switch options {
+                                    case .userDefaults: returnOnMain(self.saveAccessTokenToUserDefaults(token), completion)
+                                    case .Keychain: returnOnMain(self.saveToKeychain(token), completion)
+                                    }
                                 
                                 NSOperationQueue.mainQueue().addOperationWithBlock({
                                     completion(success: self.saveAccessTokenToUserDefaults(token))
@@ -179,20 +220,36 @@ class GitHubOAuth {
     }
     
     
-    // function that chekcs if there is already a token in access defaults
+    // function that checks if there is already a token in access defaults
     
     func accessToken() throws -> String? {
         
-        guard let accessToken = NSUserDefaults.standardUserDefaults().stringForKey(kAccessTokenKey) else {
-            throw GitHubOAuthError.MissingAccessToken("There is no Access Token saved. ")
+        var query = self.keychainQuery(kAccessTokenKey)
+        query[(kSecReturnData as String)] = kCFBooleanTrue
+        query[(kSecMatchLimit as String)] = kSecMatchLimitOne
+        
+        var dataRef: AnyObject?
+        
+        if SecItemCopyMatching(query, &dataRef) == errSecSuccess {
+            // if success unwrap data
+            if let data = dataRef as? NSData {
+                // take data and create string
+                if let token = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? String {
+                    return token
+                }
+            }
+        } else {
+            
+            
+            guard let token = NSUserDefaults.standardUserDefaults().stringForKey(kAccessTokenKey) else {
+                throw GitHubOAuthError.MissingAccessToken("There is no Access Token saved. ")
+            }
+            
+            return token
         }
         
-        return accessToken
-        
+        return nil
     }
-    
-    
-    
 }
 
 

@@ -21,3 +21,6 @@ func returnMiddleThree(input: [Int]) -> [Int] {
 returnMiddleThree(testArray)
 
 
+returnMiddleThree([1, 2, 3])
+
+returnMiddleThree([0, 0, 0])
