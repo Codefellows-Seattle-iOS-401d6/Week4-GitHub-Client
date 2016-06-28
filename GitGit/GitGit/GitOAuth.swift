@@ -62,11 +62,15 @@ class GitHubOAuth {
     }
     
     func stringWith(data: NSData)-> String? {
-        let byteBuffer: UnsafeBufferPointer = UnsafeBufferPointer<UInt8>(start: UnsafeMutablePointer<UInt8>(data.bytes), count: data.length)
         
-        let result = String(bytes: byteBuffer, encoding: NSASCIIStringEncoding)
+        let myResult = String(data: data, encoding: NSUTF8StringEncoding)
         
-        return result
+//        let byteBuffer: UnsafeBufferPointer = UnsafeBufferPointer<UInt8>(start: UnsafeMutablePointer<UInt8>(data.bytes), count: data.length)
+//        
+//        let result = String(bytes: byteBuffer, encoding: NSASCIIStringEncoding)
+//        
+//        print("\(result) => \(myResult)")
+        return myResult
     }
     
     func accessTokenFromString(string: String) throws -> String? {
@@ -107,7 +111,7 @@ class GitHubOAuth {
                 
                 let session = NSURLSession(configuration: sessionConfiguration)
                 
-                session.dataTaskWithURL(requestURL, completionHandler: { (data, repsonse, error) in
+                session.dataTaskWithURL(requestURL, completionHandler: { (data, response, error) in
                     
                     if let _ = error {
                         NSOperationQueue.mainQueue().addOperationWithBlock({ 
@@ -160,8 +164,6 @@ class GitHubOAuth {
         return accessToken
     }
 }
-
-
 
 
 

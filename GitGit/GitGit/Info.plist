@@ -27,7 +27,7 @@
 			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>GitGit://</string>
+				<string>gitgit</string>
 			</array>
 		</dict>
 	</array>

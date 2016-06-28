@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("appdelegate - OpenURL Func URL: \(url)")
         
         GitHubOAuth.shared.tokenRequestWithCallback(url, options: SaveOptions.userDefaults) { (success) in
+            print(success)
             
             if success {
                 print("We have a token")
