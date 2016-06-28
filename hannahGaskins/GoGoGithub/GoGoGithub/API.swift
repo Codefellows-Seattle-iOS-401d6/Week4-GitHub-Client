@@ -25,7 +25,11 @@ class API {
         //
         self.template.scheme = "https"
         self.template.host = "api.github.com"
+        self.getToken()
         
+    }
+    
+    func getToken() {
         do {
             
             if let token = try GitHubOAuth.shared.accessToken() {

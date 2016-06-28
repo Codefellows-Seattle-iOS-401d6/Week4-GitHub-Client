@@ -36,8 +36,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     UIView.animateWithDuration(0.4, delay: 1.0, options: .CurveEaseInOut, animations: {
                         oauthViewController.view.alpha = 0.0
                         }, completion: { (finished) in
+                            
                             oauthViewController.view.removeFromSuperview()
                             oauthViewController.removeFromParentViewController()
+                            
+                            API.shared.getToken()
+                            
+                            guard let homeViewController = self.window?.rootViewController as? HomeViewController else { return }
+                            
+                            homeViewController.update()
                     })
                 }
                 print("we have a token!!")

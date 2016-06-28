@@ -33,6 +33,8 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         self.update()
     }
+    
+    
 
     
     override func didReceiveMemoryWarning() {
