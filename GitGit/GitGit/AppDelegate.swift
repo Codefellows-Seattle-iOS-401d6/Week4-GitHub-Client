@@ -33,10 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         }, completion: { (finished) in
                             oauthViewController.view.removeFromSuperview()
                             oauthViewController.removeFromParentViewController()
+                           
                             API.shared.getToken()
-                            guard let tempViewController = self.window?.rootViewController as? HomeViewController else { return }
-                            tempViewController.getRepos()
-//                            self.homeViewController?.getRepos()
+                            guard let homeViewController = self.window?.rootViewController as? HomeViewController else { return }
+                            
+                            homeViewController.getRepos()
 
                     })
                 }

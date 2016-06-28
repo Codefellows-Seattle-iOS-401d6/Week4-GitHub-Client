@@ -139,7 +139,7 @@ class GitHubOAuth {
                     }
                     
                     if let data = data {
-                                                
+                        
                         if let tokenString = String(data: data, encoding: NSUTF8StringEncoding) {
                             
                             do {
