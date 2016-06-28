@@ -22,19 +22,21 @@ class API
     {
         self.session = NSURLSession(configuration: .defaultSessionConfiguration())
         self.template = NSURLComponents()
-        self.configure()
-    }
-    
-    private func configure()
-    {
         self.template.scheme = "https"
         self.template.host = "api.github.com"
+        self.getToken()
+    }
+    
+    func getToken()
+    {
+
         do {
             if let token = try GitHubOAuth.shared.accessToken() {
                 self.template.queryItems = [NSURLQueryItem(name: "access_token", value: token)]
             }
         }
         catch {
+            print("handle error here")
             
         }
     }

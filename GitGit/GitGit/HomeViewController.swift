@@ -19,18 +19,17 @@ class HomeViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setup()
+        self.setupAppearance()
 
     }
+    
 
     
     override func viewWillAppear(animated: Bool) {
    
         super.viewWillAppear(animated)
-        API.shared.GETRepositories { (repositories) in
-            if let data = repositories {
-                self.repositories = data
-            }
-        }
+        getRepos()
     }
     
     
@@ -39,7 +38,26 @@ class HomeViewController: UIViewController {
     }
     
 
+    func getRepos(){
+        API.shared.GETRepositories { (repositories) in
+            if let data = repositories {
+                self.repositories = data
+            }
+        }
+    }
 }
+
+extension HomeViewController: Setup {
+    
+    func setup() {
+        self.title = "Repositories"
+    }
+    
+    func setupAppearance() {
+    }
+    
+}
+
 
 extension HomeViewController: UITableViewDataSource
 {

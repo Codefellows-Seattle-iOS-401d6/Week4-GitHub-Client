@@ -19,6 +19,7 @@
 		6976A93C1D23036600A42FD5 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6976A93B1D23036600A42FD5 /* API.swift */; };
 		6976A93E1D23079200A42FD5 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6976A93D1D23079200A42FD5 /* Repository.swift */; };
 		6976A9401D23079B00A42FD5 /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6976A93F1D23079B00A42FD5 /* Owner.swift */; };
+		6976A9421D23186100A42FD5 /* additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6976A9411D23186100A42FD5 /* additions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		6976A93B1D23036600A42FD5 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		6976A93D1D23079200A42FD5 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		6976A93F1D23079B00A42FD5 /* Owner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
+		6976A9411D23186100A42FD5 /* additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = additions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				6976A93B1D23036600A42FD5 /* API.swift */,
+				6976A9411D23186100A42FD5 /* additions.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				696F34061D21996B002D94CD /* AppDelegate.swift in Sources */,
 				6976A93A1D22FA9200A42FD5 /* HomeViewController.swift in Sources */,
 				6976A93C1D23036600A42FD5 /* API.swift in Sources */,
+				6976A9421D23186100A42FD5 /* additions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

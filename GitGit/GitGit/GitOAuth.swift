@@ -128,7 +128,7 @@ class GitHubOAuth {
         
         func returnOnMain(success: Bool, _ completion: GitHubOAuthCompletion) {
             NSOperationQueue.mainQueue().addOperationWithBlock { 
-                completion(success: false); return
+                completion(success: success); return
             }
         }
         
@@ -189,7 +189,7 @@ class GitHubOAuth {
     }
     
     func accessToken() throws -> String? {
-        print("trying to get access token from nsuserdefaults")
+        print("trying to get access token")
         
         var query = self.keychainQuery(kAccessTokenKey)
         query[(kSecReturnData as String)] = kCFBooleanTrue
@@ -206,11 +206,11 @@ class GitHubOAuth {
         }
         
         else {
-            guard let accessToken = NSUserDefaults.standardUserDefaults().stringForKey(kAccessTokenKey) else {
+            guard let token = NSUserDefaults.standardUserDefaults().stringForKey(kAccessTokenKey) else {
                 throw GitHubOAuthError.MissingAccessToken("There is no access token saved")
                 
             }
-            return accessToken
+            return token
         }
   
     

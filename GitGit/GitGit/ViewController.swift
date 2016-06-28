@@ -47,7 +47,6 @@ class ViewController: UIViewController {
 //    }
 }
 // MARK: Setup
-
 extension ViewController: Setup {
     
     func setup() {
@@ -57,8 +56,9 @@ extension ViewController: Setup {
     func setupAppearance() {
         self.loginButton.layer.cornerRadius = 3.0
     }
-
+    
 }
+
 
 
 

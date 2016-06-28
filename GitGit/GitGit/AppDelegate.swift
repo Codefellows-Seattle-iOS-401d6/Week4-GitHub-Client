@@ -13,10 +13,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var oauthViewController: ViewController?
-
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
         self.checkOAuthStatus()
         return true
     }
@@ -33,11 +33,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         }, completion: { (finished) in
                             oauthViewController.view.removeFromSuperview()
                             oauthViewController.removeFromParentViewController()
+                            API.shared.getToken()
+                            guard let tempViewController = self.window?.rootViewController as? HomeViewController else { return }
+                            tempViewController.getRepos()
+//                            self.homeViewController?.getRepos()
+
                     })
                 }
                 print("We have a token")
-
-            }
+                
+           }
             
         }
         return true
@@ -75,7 +80,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         oauthViewController.didMoveToParentViewController(homeViewController)
-        
         
         self.oauthViewController = oauthViewController
         
