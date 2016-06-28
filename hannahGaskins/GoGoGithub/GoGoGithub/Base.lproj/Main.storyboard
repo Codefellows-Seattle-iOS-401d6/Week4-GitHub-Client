@@ -74,17 +74,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQ1-Ow-1kr">
-                                <rect key="frame" x="175" y="540" width="250" height="40"/>
-                                <color key="backgroundColor" red="0.61568627450980395" green="0.85882352941176465" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="ZBj-c0-W9P"/>
-                                </constraints>
-                                <state key="normal" title="Login"/>
-                                <connections>
-                                    <action selector="loginButtonSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sBM-2q-TDL"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="images.png" translatesAutoresizingMaskIntoConstraints="NO" id="LIB-eh-1vd">
                                 <rect key="frame" x="180" y="225" width="240" height="150"/>
                                 <constraints>
@@ -92,6 +81,19 @@
                                     <constraint firstAttribute="width" constant="240" id="LJC-FT-3pr"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQ1-Ow-1kr">
+                                <rect key="frame" x="175" y="540" width="250" height="40"/>
+                                <color key="backgroundColor" red="0.61568627450980395" green="0.85882352941176465" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="1Bf-Dm-hNR"/>
+                                    <constraint firstAttribute="height" constant="40" id="A88-hG-UFz"/>
+                                    <constraint firstAttribute="width" constant="250" id="ZBj-c0-W9P"/>
+                                </constraints>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginButtonSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sBM-2q-TDL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
