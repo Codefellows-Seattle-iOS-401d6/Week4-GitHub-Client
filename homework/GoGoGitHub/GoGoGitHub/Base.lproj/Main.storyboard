@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Hj0-q2-b1z">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -8,7 +8,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GoGoGitHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="GoGoGitHub" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -18,42 +18,91 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xz8-1m-qNS">
-                                <rect key="frame" x="20" y="285" width="560" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Request Token">
+                                <rect key="frame" x="175" y="519" width="250" height="30"/>
+                                <color key="backgroundColor" red="0.61568627450980395" green="0.85882352941176465" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="Fpm-OU-gGo"/>
+                                    <constraint firstAttribute="width" constant="250" id="HYR-hd-2TC"/>
+                                </constraints>
+                                <state key="normal" title="Login">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="requestToken:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vqy-En-OAk"/>
+                                    <action selector="loginButtonSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fme-qI-3q2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40t-9H-rNO">
-                                <rect key="frame" x="20" y="345" width="560" height="30"/>
-                                <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Print Token">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="printToken:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oOM-tE-B23"/>
-                                </connections>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="github-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="4Gf-6O-bBL">
+                                <rect key="frame" x="180" y="134" width="240" height="241"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="241" id="8Uy-AC-Vgb"/>
+                                    <constraint firstAttribute="width" constant="240" id="EGr-fV-5pq"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="40t-9H-rNO" firstAttribute="centerX" secondItem="xz8-1m-qNS" secondAttribute="centerX" id="3wQ-8g-8x6"/>
-                            <constraint firstAttribute="trailing" secondItem="40t-9H-rNO" secondAttribute="trailing" constant="20" id="8ks-6K-kSw"/>
-                            <constraint firstItem="xz8-1m-qNS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KVN-do-8um"/>
-                            <constraint firstAttribute="trailing" secondItem="xz8-1m-qNS" secondAttribute="trailing" constant="20" id="U7y-63-4uH"/>
-                            <constraint firstItem="xz8-1m-qNS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="Yaw-ve-emz"/>
-                            <constraint firstItem="40t-9H-rNO" firstAttribute="top" secondItem="xz8-1m-qNS" secondAttribute="bottom" constant="30" id="abW-uc-G6l"/>
-                            <constraint firstItem="40t-9H-rNO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="mQD-De-8AY"/>
-                            <constraint firstItem="xz8-1m-qNS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="rJ1-Vz-KOq"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xz8-1m-qNS" secondAttribute="bottom" constant="51" id="SXw-cD-kgn"/>
+                            <constraint firstItem="xz8-1m-qNS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Utc-t5-Esw"/>
+                            <constraint firstItem="4Gf-6O-bBL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="az3-7y-uEj"/>
+                            <constraint firstItem="4Gf-6O-bBL" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-45.5" id="vea-xb-Ada"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="xz8-1m-qNS" id="DBf-sg-v0s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="410" y="151"/>
         </scene>
+        <!--Home View Controller-->
+        <scene sceneID="k6p-QO-lIg">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" id="Hj0-q2-b1z" customClass="HomeViewController" customModule="GoGoGitHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SYB-ih-fBm"/>
+                        <viewControllerLayoutGuide type="bottom" id="SNV-TN-7pi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5sc-Og-bWb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WBN-GS-6Sn">
+                                <rect key="frame" x="0.0" y="28" width="600" height="572"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="repositoryCell" id="Gv8-A3-rf7">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gv8-A3-rf7" id="d9X-oQ-uMh">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Hj0-q2-b1z" id="CAg-bI-5tt"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WBN-GS-6Sn" firstAttribute="leading" secondItem="5sc-Og-bWb" secondAttribute="leading" id="Wlo-oP-shZ"/>
+                            <constraint firstItem="WBN-GS-6Sn" firstAttribute="top" secondItem="SYB-ih-fBm" secondAttribute="bottom" constant="8" id="gUA-Qt-7xe"/>
+                            <constraint firstItem="SNV-TN-7pi" firstAttribute="top" secondItem="WBN-GS-6Sn" secondAttribute="bottom" id="ixG-08-dce"/>
+                            <constraint firstAttribute="trailing" secondItem="WBN-GS-6Sn" secondAttribute="trailing" id="wIV-XX-58g"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="WBN-GS-6Sn" id="JXo-RQ-iil"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sfD-4X-sYZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1163" y="151"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="github-icon.png" width="256" height="256"/>
+    </resources>
 </document>

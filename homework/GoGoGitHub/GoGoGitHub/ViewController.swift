@@ -10,27 +10,30 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var loginButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.setup()
+        self.setupAppearance()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func requestToken(sender: AnyObject) {
-        GitHubOAuth.shared.oAuthRequestWith(["scope": "email,user"])
+    @IBAction func loginButtonSelected(sender: AnyObject) {
+        GitHubOAuth.shared.oAuthRequestWith(["scope": "email,user,repo"])
     }
 
-    @IBAction func printToken(sender: AnyObject) {
-        do {
-            let token = try GitHubOAuth.shared.accessToken()
-            print(token)
-        } catch let error {
-            print(error)
-        }
-    }
 }
 
+extension ViewController: Setup {
+    func setup() {
+        self.title = "Repositories"
+    }
+    
+    func setupAppearance() {
+        self.loginButton.layer.cornerRadius = 3.0
+    }
+}
