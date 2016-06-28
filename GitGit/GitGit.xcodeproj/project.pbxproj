@@ -14,6 +14,11 @@
 		696F34101D21996B002D94CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 696F340E1D21996B002D94CD /* LaunchScreen.storyboard */; };
 		696F34181D219A61002D94CD /* GitOAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696F34171D219A61002D94CD /* GitOAuth.swift */; };
 		696F341A1D219D51002D94CD /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696F34191D219D51002D94CD /* Credentials.swift */; };
+		6976A9361D22F71700A42FD5 /* setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6976A9351D22F71700A42FD5 /* setup.swift */; };
+		6976A93A1D22FA9200A42FD5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6976A9391D22FA9200A42FD5 /* HomeViewController.swift */; };
+		6976A93C1D23036600A42FD5 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6976A93B1D23036600A42FD5 /* API.swift */; };
+		6976A93E1D23079200A42FD5 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6976A93D1D23079200A42FD5 /* Repository.swift */; };
+		6976A9401D23079B00A42FD5 /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6976A93F1D23079B00A42FD5 /* Owner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		696F34111D21996B002D94CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		696F34171D219A61002D94CD /* GitOAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitOAuth.swift; sourceTree = "<group>"; };
 		696F34191D219D51002D94CD /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		6976A9351D22F71700A42FD5 /* setup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setup.swift; sourceTree = "<group>"; };
+		6976A9391D22FA9200A42FD5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		6976A93B1D23036600A42FD5 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		6976A93D1D23079200A42FD5 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		6976A93F1D23079B00A42FD5 /* Owner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +68,16 @@
 		696F34041D21996B002D94CD /* GitGit */ = {
 			isa = PBXGroup;
 			children = (
+				6976A9341D22E9AC00A42FD5 /* API */,
+				6976A9331D22E93F00A42FD5 /* Delegate */,
+				6976A9321D22E91400A42FD5 /* Utility */,
+				6976A9311D22E90E00A42FD5 /* Controller */,
+				6976A9301D22E90A00A42FD5 /* View */,
+				6976A92F1D22E90500A42FD5 /* Model */,
 				696F34051D21996B002D94CD /* AppDelegate.swift */,
 				696F34071D21996B002D94CD /* ViewController.swift */,
 				696F34091D21996B002D94CD /* Main.storyboard */,
+				6976A9351D22F71700A42FD5 /* setup.swift */,
 				696F340C1D21996B002D94CD /* Assets.xcassets */,
 				696F340E1D21996B002D94CD /* LaunchScreen.storyboard */,
 				696F34111D21996B002D94CD /* Info.plist */,
@@ -68,6 +85,52 @@
 				696F34191D219D51002D94CD /* Credentials.swift */,
 			);
 			path = GitGit;
+			sourceTree = "<group>";
+		};
+		6976A92F1D22E90500A42FD5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6976A93D1D23079200A42FD5 /* Repository.swift */,
+				6976A93F1D23079B00A42FD5 /* Owner.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		6976A9301D22E90A00A42FD5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		6976A9311D22E90E00A42FD5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6976A9391D22FA9200A42FD5 /* HomeViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		6976A9321D22E91400A42FD5 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		6976A9331D22E93F00A42FD5 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Delegate;
+			sourceTree = "<group>";
+		};
+		6976A9341D22E9AC00A42FD5 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				6976A93B1D23036600A42FD5 /* API.swift */,
+			);
+			name = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,7 +207,12 @@
 				696F34081D21996B002D94CD /* ViewController.swift in Sources */,
 				696F34181D219A61002D94CD /* GitOAuth.swift in Sources */,
 				696F341A1D219D51002D94CD /* Credentials.swift in Sources */,
+				6976A93E1D23079200A42FD5 /* Repository.swift in Sources */,
+				6976A9401D23079B00A42FD5 /* Owner.swift in Sources */,
+				6976A9361D22F71700A42FD5 /* setup.swift in Sources */,
 				696F34061D21996B002D94CD /* AppDelegate.swift in Sources */,
+				6976A93A1D22FA9200A42FD5 /* HomeViewController.swift in Sources */,
+				6976A93C1D23036600A42FD5 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
