@@ -63,6 +63,30 @@ class API {
             }.resume()
     }
     
+    func GETUser(completion: (user: User?) -> ()) {
+        self.template.path = "/user"
+        self.session.dataTaskWithURL(self.template.URL!) {(data, response, error) in
+            if let error = error {
+                print(error)
+            }
+            if let data = data {
+                do {
+                    if let json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions()) as? [String : AnyObject] {
+                        let user = User(json: json)
+                        dispatch_async(dispatch_get_main_queue(), {
+                            completion(user: user)
+                        })
+                    }
+                } catch {
+                    dispatch_async(dispatch_get_main_queue(), { 
+                        completion(user: nil)
+                    })
+                }
+            }
+            
+        }.resume()
+    }
+    
     private func returnOnMain(repositories: [Repository]?, completion: (repositories: [Repository]?) -> ()) {
         NSOperationQueue.mainQueue().addOperationWithBlock({
             completion(repositories: repositories)

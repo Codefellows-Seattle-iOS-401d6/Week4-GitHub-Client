@@ -21,6 +21,8 @@
 		048B279F1D23281F00103E75 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048B279E1D23281E00103E75 /* Repository.swift */; };
 		048B27A11D23284900103E75 /* Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048B27A01D23284900103E75 /* Additions.swift */; };
 		048B27A61D24689B00103E75 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048B27A51D24689B00103E75 /* ProfileViewController.swift */; };
+		048B27AA1D24714000103E75 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048B27A91D24714000103E75 /* User.swift */; };
+		048B27AC1D247F0E00103E75 /* CustomModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048B27AB1D247F0E00103E75 /* CustomModalTransition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		048B279E1D23281E00103E75 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		048B27A01D23284900103E75 /* Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Additions.swift; sourceTree = "<group>"; };
 		048B27A51D24689B00103E75 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		048B27A91D24714000103E75 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../User.swift; sourceTree = "<group>"; };
+		048B27AB1D247F0E00103E75 /* CustomModalTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomModalTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				048B27831D21BEB700103E75 /* Assets.xcassets */,
+				048B27AB1D247F0E00103E75 /* CustomModalTransition.swift */,
 				048B27851D21BEB700103E75 /* LaunchScreen.storyboard */,
 				048B27801D21BEB700103E75 /* Main.storyboard */,
 			);
@@ -105,10 +110,11 @@
 		048B27901D21C03D00103E75 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				048B27931D21C21C00103E75 /* Credentials.swift */,
 				048B279C1D2327A600103E75 /* Owner.swift */,
 				048B279E1D23281E00103E75 /* Repository.swift */,
-				048B27931D21C21C00103E75 /* Credentials.swift */,
 				048B27971D23221B00103E75 /* Setup.swift */,
+				048B27A91D24714000103E75 /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -208,8 +214,10 @@
 				048B27981D23221B00103E75 /* Setup.swift in Sources */,
 				048B27921D21C08F00103E75 /* GitHubOAuth.swift in Sources */,
 				048B277F1D21BEB700103E75 /* ViewController.swift in Sources */,
+				048B27AC1D247F0E00103E75 /* CustomModalTransition.swift in Sources */,
 				048B27A61D24689B00103E75 /* ProfileViewController.swift in Sources */,
 				048B27941D21C21C00103E75 /* Credentials.swift in Sources */,
+				048B27AA1D24714000103E75 /* User.swift in Sources */,
 				048B277D1D21BEB700103E75 /* AppDelegate.swift in Sources */,
 				048B279A1D23274B00103E75 /* API.swift in Sources */,
 				048B279F1D23281F00103E75 /* Repository.swift in Sources */,

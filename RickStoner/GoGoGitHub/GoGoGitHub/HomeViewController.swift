@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, Setup {
+class HomeViewController: UIViewController, UIViewControllerTransitioningDelegate, Setup {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,6 +19,7 @@ class HomeViewController: UIViewController, Setup {
         }
     }
     
+    lazy var transition = CustomModalTransition(duration: 2.0)
     lazy var refreshControl = UIRefreshControl()
     
     
@@ -58,6 +59,7 @@ extension HomeViewController: UITableViewDataSource, ProfileViewControllerDelega
         if segue.identifier == ProfileViewController.id {
             if let profileViewController = segue.destinationViewController as? ProfileViewController {
                 profileViewController.delegate = self
+                profileViewController.transitioningDelegate = self
             }
         }
     }
@@ -77,5 +79,9 @@ extension HomeViewController: UITableViewDataSource, ProfileViewControllerDelega
     
     func profileViewControllerDidFinsish() {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return self.transition
     }
 }
