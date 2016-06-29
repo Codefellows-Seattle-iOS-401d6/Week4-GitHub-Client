@@ -1,11 +1,16 @@
 #Week 4 - Class 3
 ##Homework
-* Create a table view in HomeViewController and populate it with repositories.
-* Create ProfileViewController that will display User information. Build the UI similar to how it looks on Github. Use UITabBarController.
-* Implement a UISearchBar on your repo search view controller and implement repo search. Use UITabBarController. Be sure to only be making authenticated network calls using your oath token!
+* Embed your HomeViewController in a NavigationController.(Fix token bug we discussed in lecture.)
+* Create ProfileViewController that will display User information. Build the UI similar to how it looks on Github.
+* Create custom viewController Transition from HomeViewController to ProfileViewController.
+* Implement dismissal of HomeViewController using Delegation pattern.
+* Implement API call for User's profile information.
+* Create a new User model object based on the User JSON from Github.
 * Implement a '+' to be able to create new repository using a POST request.
 * **Code Challenge:**
 	* Given a non-negative number "num", return true if num is within 2 of a multiple of 10. Note: (a % b) is the remainder of dividing a by b, so (7 % 5) is 2.
+* **Bonus:**
+	* Download User's profile image from gitHub.
 
 ##Reading Assignment:
 * Apple Documentation:
