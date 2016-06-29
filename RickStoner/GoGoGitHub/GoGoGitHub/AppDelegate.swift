@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if let oauthViewController = self.oauthViewController {
                     UIView.animateWithDuration(0.4, delay: 1.0, options: .CurveEaseInOut, animations: {
                         
+                        self.homeViewController?.navigationController?.navigationBarHidden = false
                         oauthViewController.view.alpha = 0.0
                         }, completion: { (finished) in
                             oauthViewController.view.removeFromSuperview()
@@ -58,9 +59,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func presentOAuthViewController() {
-        guard let homeViewController = self.window?.rootViewController as? HomeViewController else {
-            fatalError("Check root view controller")
-        }
+        guard let navigationController = self.window?.rootViewController as? UINavigationController else { fatalError("Verify root controller") }
+        navigationController.navigationBarHidden = true
+        
+        guard let homeViewController = navigationController.viewControllers.first as? HomeViewController else { fatalError("Check Home View controller") }
+        
         guard let storyboard = homeViewController.storyboard else { fatalError("Check for storyboard") }
         guard let oauthViewController = storyboard.instantiateViewControllerWithIdentifier(ViewController.id) as?
             ViewController else { fatalError("Error") }
