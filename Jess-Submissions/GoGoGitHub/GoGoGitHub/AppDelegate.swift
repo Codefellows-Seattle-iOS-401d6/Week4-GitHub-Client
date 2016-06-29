@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?    
     var viewController: ViewController?
+    var homeViewController: HomeViewController?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -29,6 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if success{
                 if let viewController = self.viewController{
                     UIView.animateWithDuration(0.4, delay: 1.0, options: .CurveEaseInOut, animations: {
+                        
+                        self.homeViewController?.navigationController?.navigationBarHidden = false
+                        
                         viewController.view.alpha = 0.0
                         }, completion: { (finished) in
                             viewController.view.removeFromSuperview()
@@ -56,9 +60,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         func presentViewController()
         {
-            guard let homeViewController = self.window?.rootViewController as? HomeViewController else {
+            
+            guard let navigationController = self.window?.rootViewController as? UINavigationController else {
                 fatalError("Check your root view controller...")
             }
+            
+            navigationController.navigationBarHidden = true
+    
+            guard let homeViewController = navigationController.viewControllers.first as? HomeViewController else {
+                fatalError("Home VC?")
+            }
+    
             
             guard let storyboard = homeViewController.storyboard else {
                 fatalError("Check for storyboard...")
@@ -72,10 +84,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             homeViewController.view.addSubview(viewController.view)            
             viewController.didMoveToParentViewController(homeViewController)
             
+            self.homeViewController = homeViewController
             self.viewController = viewController
         }
     
     
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

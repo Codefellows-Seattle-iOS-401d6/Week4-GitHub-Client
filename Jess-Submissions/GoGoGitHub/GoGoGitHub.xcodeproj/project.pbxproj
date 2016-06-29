@@ -20,6 +20,9 @@
 		D9C28C351D2307830015FD84 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C28C341D2307830015FD84 /* Repository.swift */; };
 		D9C28C371D23078B0015FD84 /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C28C361D23078B0015FD84 /* Owner.swift */; };
 		D9C28C391D23088B0015FD84 /* Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C28C381D23088B0015FD84 /* Additions.swift */; };
+		D9C28C811D243F780015FD84 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C28C801D243F780015FD84 /* ProfileViewController.swift */; };
+		D9C28C831D2446C80015FD84 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C28C821D2446C80015FD84 /* User.swift */; };
+		D9C28C851D244A030015FD84 /* CustomModelTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C28C841D244A030015FD84 /* CustomModelTransition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		D9C28C341D2307830015FD84 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		D9C28C361D23078B0015FD84 /* Owner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
 		D9C28C381D23088B0015FD84 /* Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Additions.swift; sourceTree = "<group>"; };
+		D9C28C801D243F780015FD84 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D9C28C821D2446C80015FD84 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D9C28C841D244A030015FD84 /* CustomModelTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomModelTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,7 @@
 				D9C28C291D22E9B90015FD84 /* Delegate */,
 				D9C28C2A1D22E9CB0015FD84 /* Model */,
 				D9C28C2B1D22E9D20015FD84 /* View */,
+				D9C28C841D244A030015FD84 /* CustomModelTransition.swift */,
 				D9C28C141D21995C0015FD84 /* Main.storyboard */,
 				D9C28C171D21995C0015FD84 /* Assets.xcassets */,
 				D9C28C191D21995C0015FD84 /* LaunchScreen.storyboard */,
@@ -86,8 +93,8 @@
 		D9C28C261D22E9900015FD84 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				D9C28C221D219A6D0015FD84 /* GitHubOAuth.swift */,
 				D9C28C321D2303580015FD84 /* API.swift */,
+				D9C28C221D219A6D0015FD84 /* GitHubOAuth.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -106,8 +113,9 @@
 		D9C28C281D22E9A70015FD84 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D9C28C121D21995C0015FD84 /* ViewController.swift */,
 				D9C28C301D22FA5F0015FD84 /* HomeViewController.swift */,
+				D9C28C801D243F780015FD84 /* ProfileViewController.swift */,
+				D9C28C121D21995C0015FD84 /* ViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -125,6 +133,7 @@
 				D9C28C361D23078B0015FD84 /* Owner.swift */,
 				D9C28C341D2307830015FD84 /* Repository.swift */,
 				D9C28C2E1D22F7090015FD84 /* SetUp.swift */,
+				D9C28C821D2446C80015FD84 /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -208,12 +217,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9C28C231D219A6D0015FD84 /* GitHubOAuth.swift in Sources */,
+				D9C28C851D244A030015FD84 /* CustomModelTransition.swift in Sources */,
 				D9C28C131D21995C0015FD84 /* ViewController.swift in Sources */,
 				D9C28C251D219D510015FD84 /* Credentials.swift in Sources */,
 				D9C28C371D23078B0015FD84 /* Owner.swift in Sources */,
 				D9C28C111D21995C0015FD84 /* AppDelegate.swift in Sources */,
 				D9C28C311D22FA5F0015FD84 /* HomeViewController.swift in Sources */,
+				D9C28C811D243F780015FD84 /* ProfileViewController.swift in Sources */,
 				D9C28C331D2303580015FD84 /* API.swift in Sources */,
+				D9C28C831D2446C80015FD84 /* User.swift in Sources */,
 				D9C28C391D23088B0015FD84 /* Additions.swift in Sources */,
 				D9C28C2F1D22F7090015FD84 /* SetUp.swift in Sources */,
 				D9C28C351D2307830015FD84 /* Repository.swift in Sources */,
@@ -368,6 +380,7 @@
 				D9C28C211D21995C0015FD84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
