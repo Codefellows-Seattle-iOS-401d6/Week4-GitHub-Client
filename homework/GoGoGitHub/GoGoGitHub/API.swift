@@ -23,7 +23,10 @@ class API {
     private func configure() {
         self.template.scheme = "https"
         self.template.host = "api.github.com"
-        
+        self.getToken()
+    }
+    
+    func getToken() {
         
         do {
             if let token = try GitHubOAuth.shared.accessToken() {
@@ -32,6 +35,7 @@ class API {
         } catch {
             
         }
+
     }
     
     func GETRepositories(completion: (repositories: [Repository]?) -> ()) {

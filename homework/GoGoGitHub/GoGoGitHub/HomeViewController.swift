@@ -24,7 +24,15 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.getRepos()
+
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    func getRepos() {
         API.shared.GETRepositories { (repositories) in
             if let data = repositories {
                 print(data)
@@ -33,10 +41,16 @@ class HomeViewController: UIViewController {
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+}
 
+extension HomeViewController: Setup {
+    func setup() {
+        self.title = "Repositories"
+    }
+    
+    func setupAppearance() {
+        
+    }
 }
 
 extension HomeViewController: UITableViewDataSource {
