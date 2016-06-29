@@ -33,3 +33,11 @@ func returnHighLow(input: [Int]) -> (min: Int?, max: Int?)
 }
 
 returnHighLow(test)
+
+//Wednesday
+
+func multiple(num: Int) -> Bool {
+    return (num + 2) % 10 <= 4
+}
+multiple(41)
+multiple(658)
