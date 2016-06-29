@@ -21,6 +21,9 @@
 		EED8C4E51D23078000CF5AD7 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED8C4E41D23078000CF5AD7 /* Repository.swift */; };
 		EED8C4E71D23078E00CF5AD7 /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED8C4E61D23078E00CF5AD7 /* Owner.swift */; };
 		EED8C4E91D23138D00CF5AD7 /* Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED8C4E81D23138D00CF5AD7 /* Additions.swift */; };
+		EED8C5091D243F7C00CF5AD7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED8C5081D243F7C00CF5AD7 /* ProfileViewController.swift */; };
+		EED8C50B1D2446D000CF5AD7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED8C50A1D2446D000CF5AD7 /* User.swift */; };
+		EED8C50D1D2449FE00CF5AD7 /* CustomModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED8C50C1D2449FE00CF5AD7 /* CustomModalTransition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		EED8C4E41D23078000CF5AD7 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		EED8C4E61D23078E00CF5AD7 /* Owner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
 		EED8C4E81D23138D00CF5AD7 /* Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Additions.swift; sourceTree = "<group>"; };
+		EED8C5081D243F7C00CF5AD7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		EED8C50A1D2446D000CF5AD7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EED8C50C1D2449FE00CF5AD7 /* CustomModalTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomModalTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				EED8C4E01D22FA5E00CF5AD7 /* HomeViewController.swift */,
+				EED8C5081D243F7C00CF5AD7 /* ProfileViewController.swift */,
 				EED8C46D1D21994B00CF5AD7 /* ViewController.swift */,
 			);
 			name = Controllers;
@@ -115,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				EED8C4721D21994B00CF5AD7 /* Assets.xcassets */,
+				EED8C50C1D2449FE00CF5AD7 /* CustomModalTransition.swift */,
 				EED8C4741D21994B00CF5AD7 /* LaunchScreen.storyboard */,
 				EED8C46F1D21994B00CF5AD7 /* Main.storyboard */,
 			);
@@ -127,6 +135,7 @@
 				EED8C4E61D23078E00CF5AD7 /* Owner.swift */,
 				EED8C4E41D23078000CF5AD7 /* Repository.swift */,
 				EED8C4DD1D22F71E00CF5AD7 /* Setup.swift */,
+				EED8C50A1D2446D000CF5AD7 /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -209,7 +218,10 @@
 				EED8C4801D219D5300CF5AD7 /* Credentials.swift in Sources */,
 				EED8C4E51D23078000CF5AD7 /* Repository.swift in Sources */,
 				EED8C4E71D23078E00CF5AD7 /* Owner.swift in Sources */,
+				EED8C50D1D2449FE00CF5AD7 /* CustomModalTransition.swift in Sources */,
+				EED8C5091D243F7C00CF5AD7 /* ProfileViewController.swift in Sources */,
 				EED8C4DE1D22F71E00CF5AD7 /* Setup.swift in Sources */,
+				EED8C50B1D2446D000CF5AD7 /* User.swift in Sources */,
 				EED8C47E1D219A5F00CF5AD7 /* GItHubOauth.swift in Sources */,
 				EED8C4E11D22FA5E00CF5AD7 /* HomeViewController.swift in Sources */,
 				EED8C4E31D23035500CF5AD7 /* API.swift in Sources */,

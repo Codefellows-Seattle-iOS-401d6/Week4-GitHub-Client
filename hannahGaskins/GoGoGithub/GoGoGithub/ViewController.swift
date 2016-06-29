@@ -13,6 +13,8 @@ class ViewController: UIViewController, Setup {
 
     @IBOutlet weak var loginButton: UIButton!
     
+//    lazy var refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()

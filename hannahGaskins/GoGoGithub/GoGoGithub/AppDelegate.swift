@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     var oauthViewController: ViewController?
+    var homeViewController: HomeViewController?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -34,7 +35,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 if let oauthViewController = self.oauthViewController {
                     UIView.animateWithDuration(0.4, delay: 1.0, options: .CurveEaseInOut, animations: {
+                        
+                        self.homeViewController?.navigationController?.navigationBarHidden = false
                         oauthViewController.view.alpha = 0.0
+                        
                         }, completion: { (finished) in
                             
                             oauthViewController.view.removeFromSuperview()
@@ -42,9 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             
                             API.shared.getToken()
                             
-                            guard let homeViewController = self.window?.rootViewController as? HomeViewController else { return }
-                            
-                            homeViewController.update()
+                            self.homeViewController!.update()
                     })
                 }
                 print("we have a token!!")
@@ -67,9 +69,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func presentOAuthViewController() {
         
-        guard let homeViewController = self.window?.rootViewController as? HomeViewController else {
-            fatalError("Check your root view controller...")
-        }
+        
+        // pointer to navcontroller which is new root view controller
+        guard let navigationController = self.window?.rootViewController as? UINavigationController else { fatalError("Chech your root view controller...") }
+        
+        navigationController.navigationBarHidden = true // hides nav bar in nav controller
+        
+        guard let homeViewController = navigationController.viewControllers.first as? HomeViewController else { fatalError("Home VC?") }
         
         guard let storyboard = homeViewController.storyboard else {
             fatalError("check for storyboard...")
@@ -83,6 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         homeViewController.view.addSubview(oauthViewController.view)
         oauthViewController.didMoveToParentViewController(homeViewController)
         
+        self.homeViewController = homeViewController
         self.oauthViewController = oauthViewController
     }
     
