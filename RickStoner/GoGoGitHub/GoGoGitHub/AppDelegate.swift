@@ -28,7 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GitHubOAuth.shared.tokenRequestWithCallback(url, options: SaveOptions.Keychain) { (success) in
             if success{
                 if let oauthViewController = self.oauthViewController {
-                    UIView.animateWithDuration(0.4, delay: 1.0, options: .CurveEaseInOut, animations: { 
+                    UIView.animateWithDuration(0.4, delay: 1.0, options: .CurveEaseInOut, animations: {
+                        
                         oauthViewController.view.alpha = 0.0
                         }, completion: { (finished) in
                             oauthViewController.view.removeFromSuperview()
