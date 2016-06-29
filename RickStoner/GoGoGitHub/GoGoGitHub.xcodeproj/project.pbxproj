@@ -20,6 +20,7 @@
 		048B279D1D2327A600103E75 /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048B279C1D2327A600103E75 /* Owner.swift */; };
 		048B279F1D23281F00103E75 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048B279E1D23281E00103E75 /* Repository.swift */; };
 		048B27A11D23284900103E75 /* Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048B27A01D23284900103E75 /* Additions.swift */; };
+		048B27A61D24689B00103E75 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048B27A51D24689B00103E75 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		048B279C1D2327A600103E75 /* Owner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
 		048B279E1D23281E00103E75 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		048B27A01D23284900103E75 /* Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Additions.swift; sourceTree = "<group>"; };
+		048B27A51D24689B00103E75 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 		048B278F1D21C02E00103E75 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				048B27A51D24689B00103E75 /* ProfileViewController.swift */,
 				048B27951D23201E00103E75 /* HomeViewController.swift */,
 				048B277E1D21BEB700103E75 /* ViewController.swift */,
 			);
@@ -205,6 +208,7 @@
 				048B27981D23221B00103E75 /* Setup.swift in Sources */,
 				048B27921D21C08F00103E75 /* GitHubOAuth.swift in Sources */,
 				048B277F1D21BEB700103E75 /* ViewController.swift in Sources */,
+				048B27A61D24689B00103E75 /* ProfileViewController.swift in Sources */,
 				048B27941D21C21C00103E75 /* Credentials.swift in Sources */,
 				048B277D1D21BEB700103E75 /* AppDelegate.swift in Sources */,
 				048B279A1D23274B00103E75 /* API.swift in Sources */,

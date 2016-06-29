@@ -34,6 +34,7 @@ class HomeViewController: UIViewController, Setup {
         self.update()
     }
     
+    
     func setup() {
         self.refreshControl.addTarget(self, action: #selector(HomeViewController.update), forControlEvents: .AllEvents)
     }
@@ -41,6 +42,7 @@ class HomeViewController: UIViewController, Setup {
     func setupAppearance() {
         //
     }
+    
     
     func update() {
         API.shared.GET { (repositories) in
@@ -51,7 +53,15 @@ class HomeViewController: UIViewController, Setup {
     }
 }
 
-extension HomeViewController: UITableViewDataSource {
+extension HomeViewController: UITableViewDataSource, ProfileViewControllerDelegate {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == ProfileViewController.id {
+            if let profileViewController = segue.destinationViewController as? ProfileViewController {
+                profileViewController.delegate = self
+            }
+        }
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.repositories.count
     }
@@ -63,5 +73,9 @@ extension HomeViewController: UITableViewDataSource {
         repoCell.textLabel?.text = repository.name
         
         return repoCell
+    }
+    
+    func profileViewControllerDidFinsish() {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
