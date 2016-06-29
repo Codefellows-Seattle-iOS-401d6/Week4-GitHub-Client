@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var oAuthViewController: ViewController?
+    var homeViewController: HomeViewController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         checkOAuthStatus()
@@ -26,8 +27,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GitHubOAuth.shared.tokenRequestWithCallback(url, options: SaveOptions.Keychain) { (success) in
                 if success {
                     if let oAuthViewController = self.oAuthViewController {
-                        UIView.animateWithDuration(0.4, delay: 1.0, options: .CurveEaseInOut, animations: { 
+                        UIView.animateWithDuration(0.4, delay: 1.0, options: .CurveEaseInOut, animations: {
+                            
+                            //making the navigation bar reappear if we are on homeview controller
+                            self.homeViewController?.navigationController?.navigationBarHidden = false
+                            
                             oAuthViewController.view.alpha = 0.0
+                            
                             }, completion: { (finished) in
                                 oAuthViewController.view.removeFromSuperview()
                                 oAuthViewController.removeFromParentViewController()
@@ -35,7 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                 API.shared.getToken()
                                 guard let homeViewController = self.window?.rootViewController as? HomeViewController else { return }
                                 homeViewController.getRepos()
-                                
                         })
                     }
                 } else {
@@ -55,8 +60,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func presentOAuthViewController() {
-        guard let homeViewController = self.window?.rootViewController as? HomeViewController else {
+        //checks to make sure navigation controller is the rootviewcontroller
+        guard let navigationController = self.window?.rootViewController as? UINavigationController else {
             fatalError("Check your root view controller")
+        }
+        //hides navigation bar specifically so it does not show on the login screen
+        navigationController.navigationBarHidden = true
+        
+        guard let homeViewController = navigationController.viewControllers.first as? HomeViewController else {
+            fatalError("Home VC?")
         }
         
         guard let storyboard = homeViewController.storyboard else {
@@ -71,6 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         homeViewController.view.addSubview(oAuthViewController.view)
         oAuthViewController.didMoveToParentViewController(homeViewController)
         
+        self.homeViewController = homeViewController
         self.oAuthViewController = oAuthViewController
     }
 

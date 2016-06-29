@@ -48,7 +48,6 @@ class API {
             if let data = data {
                 do {
                     if let json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions()) as? [[String : AnyObject]] {
-                        print(json)
                         var repositories = [Repository]()
                         for repositoryJSON in json {
                             if let repository = Repository(json: repositoryJSON) {
@@ -65,4 +64,67 @@ class API {
             }
         }.resume()
     }
+    
+    func GETUser(completion: (user: User?) -> ()) {
+        self.template.path = "/user"
+        self.session.dataTaskWithURL(self.template.URL!) { (data, response, error) in
+            if let error = error {
+                print(error)
+            }
+            if let data = data {
+                do {
+                    if let json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions()) as? [String : AnyObject] {
+                        
+                        //create user
+                        let user = User(json: json)
+                        
+                        NSOperationQueue.mainQueue().addOperationWithBlock({
+                            completion(user: user)
+                        })
+                        //does the same thing
+                        //dispatch_async(dispatch_get_main_queue(), {
+                        //  completion(user: user)
+                        //})
+
+                    }
+                } catch {
+                    
+                }
+            }
+        }.resume()
+    }
+    
+    func POSTRepository(name: String, completion: (success: Bool) -> ()) {
+        self.template.path = "/user/repos"
+        //because this is a post method, we have to create a custom request
+        
+        let request = NSMutableURLRequest(URL: self.template.URL!)
+        request.HTTPMethod = "POST"
+        request.HTTPBody = try? NSJSONSerialization.dataWithJSONObject(["name" : name], options: NSJSONWritingOptions.PrettyPrinted)
+        
+        let task = self.session.dataTaskWithRequest(request) { (data, response, error) in
+            if let error = error {
+                print(error)
+            }
+            if let response = response as? NSHTTPURLResponse {
+                switch response.statusCode {
+                case 200...299:
+                    dispatch_async(dispatch_get_main_queue(), {
+                        completion(success: true)
+                    })
+                default:
+                    dispatch_async(dispatch_get_main_queue(), {
+                        completion(success: false)
+                    })
+                }
+            }
+        }
+        
+        task.resume()
+    }
 }
+
+
+
+
+
