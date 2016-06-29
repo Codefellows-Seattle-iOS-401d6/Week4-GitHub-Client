@@ -15,11 +15,12 @@ struct Repository {
     //    let language : String?
     //    let openIssues: Int
     //    let id: Int
-    //    let createdAt: NSDate
+    let createdAt: NSDate
     
     init?(json: [String:AnyObject]) {
-        if let name = json["name"] as? String {
+        if let name = json["name"] as? String, let date = json["created_at"] as? String {
             self.name = name
+            self.createdAt = NSDate.formattedDate(date)
         } else {
             return nil
         }
@@ -28,16 +29,13 @@ struct Repository {
 
 
 extension NSDate {
-    class func formattedDate(date: String) -> NSDate? {
+    class func formattedDate(date: String) -> NSDate {
         let formatter = NSDateFormatter()
-        formatter.dateStyle = NSDateFormatterStyle.NoStyle
         formatter.locale = NSLocale.autoupdatingCurrentLocale()
-        formatter.dateFormat = "dd-MM-yyyy"
-        if let dateAsString = formatter.dateFromString(date) {
-            return dateAsString
-        } else {
-            return nil
-        }
+        formatter.timeStyle = NSDateFormatterStyle.NoStyle
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        return formatter.dateFromString(date)!
     }
 }
+
 

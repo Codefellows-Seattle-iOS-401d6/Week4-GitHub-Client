@@ -9,16 +9,12 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView! {
+    @IBOutlet weak var tableView: UITableView!
+    
+    var repositories = [Repository]() {
         didSet {
-            self.tableView.dataSource = self
+            self.tableView.reloadData()
         }
-    }
-    
-    var repositories = [Repository]()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -28,7 +24,6 @@ class HomeViewController: UIViewController {
                 self.repositories = data
             }
         })
-        self.tableView.reloadData()
     }
 }
 
@@ -40,6 +35,8 @@ extension HomeViewController : UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("RepositoryCell", forIndexPath: indexPath)
         cell.textLabel?.text = repositories[indexPath.row].name
+        let date = String(repositories[indexPath.row].createdAt)
+        cell.detailTextLabel?.text = date.substringToIndex(date.startIndex.advancedBy(10))
         return cell
     }
 }

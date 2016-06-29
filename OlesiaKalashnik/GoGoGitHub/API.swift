@@ -45,6 +45,7 @@ class API {
                                 print(safeRepositoryJSON)
                             }
                         }
+                        completion(repos: repositories)
                     }
                 } catch {
                     print("Failed in JSON serialization")
