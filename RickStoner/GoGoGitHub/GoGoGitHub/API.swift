@@ -87,6 +87,28 @@ class API {
         }.resume()
     }
     
+    func POSTRepository(name: String, completion: (success: Bool) -> ()) {
+        self.template.path = "/user/repos"
+        
+        let request = NSMutableURLRequest(URL: self.template.URL!)
+        request.HTTPMethod = "POST"
+        request.HTTPBody = try? NSJSONSerialization.dataWithJSONObject(["name" : name], options: .PrettyPrinted)
+        let task = self.session.dataTaskWithRequest(request) { (data, response, error) in
+            if let response = response as? NSHTTPURLResponse{
+                switch response.statusCode {
+                case 200...299: dispatch_async(dispatch_get_main_queue(), { 
+                    completion(success: true)
+                })
+                default:
+                    dispatch_async(dispatch_get_main_queue(), { 
+                        completion(success: false)
+                    })
+                }
+            }
+        }
+        task.resume()
+    }
+    
     private func returnOnMain(repositories: [Repository]?, completion: (repositories: [Repository]?) -> ()) {
         NSOperationQueue.mainQueue().addOperationWithBlock({
             completion(repositories: repositories)

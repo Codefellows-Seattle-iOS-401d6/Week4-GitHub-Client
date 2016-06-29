@@ -120,6 +120,11 @@
                                 <segue destination="a78-Ey-e4M" kind="presentation" identifier="ProfileViewController" id="bh0-bN-bFR"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Fo5-Zn-zNy">
+                            <connections>
+                                <action selector="addButtonSelected:" destination="JUJ-uD-42f" id="V55-FT-eZj"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="3b9-GQ-Wf4" id="OOa-Vn-9Ze"/>

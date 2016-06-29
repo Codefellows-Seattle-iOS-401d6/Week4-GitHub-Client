@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UIViewControllerTransitioningDelegate, Setup {
+class HomeViewController: UIViewController, Setup {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -52,9 +52,36 @@ class HomeViewController: UIViewController, UIViewControllerTransitioningDelegat
             }
         }
     }
+    
+    
+    @IBAction func addButtonSelected(sender: AnyObject) {
+        
+        let controller = UIAlertController(title: "Create", message: "Please enter a name.", preferredStyle: .Alert)
+        let createAction = UIAlertAction(title: "Create", style: .Default) { (action) in
+            guard let textField = controller.textFields?.first else { return }
+            
+            if let text = textField.text {
+                API.shared.POSTRepository(text, completion: { (success) in
+                    if success {
+                        print("Repo Posted")
+                    }
+                })
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
+        
+        controller.addTextFieldWithConfigurationHandler(nil)
+        controller.addAction(cancelAction)
+        controller.addAction(createAction)
+        
+        controller.view.setNeedsLayout()
+        self.presentViewController(controller, animated: true, completion: nil)
+    }
+    
 }
 
-extension HomeViewController: UITableViewDataSource, ProfileViewControllerDelegate {
+extension HomeViewController: UITableViewDataSource, UIViewControllerTransitioningDelegate, ProfileViewControllerDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == ProfileViewController.id {
             if let profileViewController = segue.destinationViewController as? ProfileViewController {
