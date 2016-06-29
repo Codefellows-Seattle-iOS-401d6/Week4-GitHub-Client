@@ -17,6 +17,8 @@ protocol ProfileViewControllerDelegate: class {
 
 class ProfileViewController: UIViewController, Setup {
 
+    @IBOutlet weak var profileImage: UIImageView!
+    
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var locationLabel: UILabel!
@@ -50,7 +52,13 @@ class ProfileViewController: UIViewController, Setup {
         API.shared.GETuser { (user) in
             if let user = user {
                 self.nameLabel.text = user.name
-                self.locationLabel.text = user.location 
+                self.locationLabel.text = user.location
+                
+                if let url = NSURL(string: user.avatarURL!) {
+                    if let data = NSData(contentsOfURL: url) {
+                        self.profileImage.image = UIImage(data: data)
+                    }
+                }
             }
             
         }

@@ -16,7 +16,7 @@ struct User
     let blog: String?
     let createdAt: NSDate
     let followers: Int
-    //    let profile_URL: // asynchronously download image of user
+    let avatarURL: String?
     
     init?(json: [String : AnyObject])
     {
@@ -24,6 +24,7 @@ struct User
             let createdAt = NSDate.dateFromString(json["created_at"] as! String)
             let location = json["location"] as? String
             let blog = json["blog"] as? String
+            let avatarURL = json["avatar_url"] as? String
             
             self.name = name
             self.login = login
@@ -31,6 +32,7 @@ struct User
             self.blog = blog
             self.createdAt = createdAt
             self.followers = followers
+            self.avatarURL = avatarURL
         }
             
         else {
