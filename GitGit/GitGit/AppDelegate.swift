@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var oauthViewController: ViewController?
+    var homeViewController: HomeViewController?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -29,15 +30,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if success {
                 if let oauthViewController = self.oauthViewController {
                     UIView.animateWithDuration(0.4, delay: 1.0, options: .CurveEaseInOut, animations: {
+                        
+                        self.homeViewController?.navigationController?.navigationBarHidden = false
+                        
                         oauthViewController.view.alpha = 0.0
                         }, completion: { (finished) in
                             oauthViewController.view.removeFromSuperview()
                             oauthViewController.removeFromParentViewController()
                            
                             API.shared.getToken()
-                            guard let homeViewController = self.window?.rootViewController as? HomeViewController else { return }
+
                             
-                            homeViewController.getRepos()
+                            self.homeViewController!.getRepos()
 
                     })
                 }
@@ -64,10 +68,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func presentOAuthViewController()
         
     {
-        
-        // Change ViewController references to OAuthViewController or ...
-        guard let homeViewController = self.window?.rootViewController as? HomeViewController else {
+        guard let navigationController = self.window?.rootViewController as? UINavigationController else {
             fatalError("check your root view controller...")
+        }
+        navigationController.navigationBarHidden = true
+
+        // Change ViewController references to OAuthViewController or ...
+        guard let homeViewController = navigationController.viewControllers.first as? HomeViewController else {
+            fatalError("check your home view controller...")
         }
         
         guard let storyboard = homeViewController.storyboard else {
@@ -83,6 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         oauthViewController.didMoveToParentViewController(homeViewController)
         
         self.oauthViewController = oauthViewController
+        self.homeViewController = homeViewController
         
     }
 

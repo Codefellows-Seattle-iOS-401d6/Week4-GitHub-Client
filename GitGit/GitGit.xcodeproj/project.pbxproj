@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		694DDAFD1D243F7800929B9B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694DDAFC1D243F7800929B9B /* ProfileViewController.swift */; };
+		694DDAFF1D2446B600929B9B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694DDAFE1D2446B600929B9B /* User.swift */; };
+		694DDB011D244A0E00929B9B /* CustomModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694DDB001D244A0E00929B9B /* CustomModalTransition.swift */; };
 		696F34061D21996B002D94CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696F34051D21996B002D94CD /* AppDelegate.swift */; };
 		696F34081D21996B002D94CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696F34071D21996B002D94CD /* ViewController.swift */; };
 		696F340B1D21996B002D94CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 696F34091D21996B002D94CD /* Main.storyboard */; };
@@ -23,6 +26,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		694DDAFC1D243F7800929B9B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		694DDAFE1D2446B600929B9B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		694DDB001D244A0E00929B9B /* CustomModalTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomModalTransition.swift; sourceTree = "<group>"; };
 		696F34021D21996B002D94CD /* GitGit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitGit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		696F34051D21996B002D94CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		696F34071D21996B002D94CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +96,7 @@
 				696F34191D219D51002D94CD /* Credentials.swift */,
 				6976A93D1D23079200A42FD5 /* Repository.swift */,
 				6976A93F1D23079B00A42FD5 /* Owner.swift */,
+				694DDAFE1D2446B600929B9B /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -97,6 +104,7 @@
 		6976A9301D22E90A00A42FD5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				694DDB001D244A0E00929B9B /* CustomModalTransition.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -104,8 +112,9 @@
 		6976A9311D22E90E00A42FD5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				696F34071D21996B002D94CD /* ViewController.swift */,
 				6976A9391D22FA9200A42FD5 /* HomeViewController.swift */,
+				694DDAFC1D243F7800929B9B /* ProfileViewController.swift */,
+				696F34071D21996B002D94CD /* ViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -213,7 +222,10 @@
 				6976A93E1D23079200A42FD5 /* Repository.swift in Sources */,
 				6976A9401D23079B00A42FD5 /* Owner.swift in Sources */,
 				6976A9361D22F71700A42FD5 /* setup.swift in Sources */,
+				694DDB011D244A0E00929B9B /* CustomModalTransition.swift in Sources */,
+				694DDAFD1D243F7800929B9B /* ProfileViewController.swift in Sources */,
 				696F34061D21996B002D94CD /* AppDelegate.swift in Sources */,
+				694DDAFF1D2446B600929B9B /* User.swift in Sources */,
 				6976A93A1D22FA9200A42FD5 /* HomeViewController.swift in Sources */,
 				6976A93C1D23036600A42FD5 /* API.swift in Sources */,
 				6976A9421D23186100A42FD5 /* additions.swift in Sources */,
