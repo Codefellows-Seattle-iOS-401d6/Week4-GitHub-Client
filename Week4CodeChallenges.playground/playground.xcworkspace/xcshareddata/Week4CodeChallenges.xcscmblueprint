@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "27685DE7953AA236F7B2F815254D757DCDA1B44C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "27685DE7953AA236F7B2F815254D757DCDA1B44C" : 0,
+    "EB79EE5254103E98E9FA292F452FAD5F00FD61B2" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "7239E91E-CD80-4A86-8C9F-1C422142A459",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "27685DE7953AA236F7B2F815254D757DCDA1B44C" : "Week4-GitHub-Client\/",
+    "EB79EE5254103E98E9FA292F452FAD5F00FD61B2" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Week4CodeChallenges",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Week4CodeChallenges.playground",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/erinroby\/Week4-GitHub-Client.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "27685DE7953AA236F7B2F815254D757DCDA1B44C"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/erinroby\/iOS-401-class-5.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EB79EE5254103E98E9FA292F452FAD5F00FD61B2"
+    }
+  ]
+}
